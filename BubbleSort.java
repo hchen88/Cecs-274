@@ -48,18 +48,19 @@ public class BubbleSort {
 		sort(a);
 		
 		System.out.println("New array" + Arrays.toString(a));
-		
-		System.out.println("Please Enter Size of Array to sort: ");
-		sizeString = in.nextLine().trim();
-		int size = Integer.parseInt(sizeString);
-		for (int i = 0; i <= 8; i++) {
+		System.out.println("Generating Random Arrays with size starting at 10000");
+		int size = 0;
+		int totalTime = 0;
+		for (int i = 0; i < 6; i++) {
+			size += 10000;
 			a = ArrayUtil2.generateDoubleArray(size);
 			s.start();
 			sort(a);
 			s.stop();
-			System.out.println("size: " + size + "\ttime elapased: " + s.getMilliSecondsElapsed() + " milliseconds");
+			System.out.println("size: " + size  + "\ttime elapased: " + s.getMilliSecondsElapsed() + " milliseconds");
 			s.reset();
 		}
+		System.out.println("DONE");
 		
 		
 	}
