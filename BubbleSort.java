@@ -21,21 +21,21 @@ public class BubbleSort {
 		
 		boolean sorted = false;
 		while( !sorted) {
-			for( int i= 0 ; i < a.length; i++) {
-				for(int j =1 ; j < a.length; j++) {
-					if (((Comparable) a[j-1]).compareTo(a[j]) > 0) {
-						temp = a[j-1];
-						a[j-1] = a[j];
-						a[j] = temp;
+			sorted = true;
+			for( int i= 1 ; i < a.length; i++) {
+					if (((Comparable) a[i]).compareTo(a[i-1]) < 0) {
+						sorted = false;
+						temp = a[i-1];
+						a[i-1] = a[i];
+						a[i] = temp;
 						//System.out.println("Change: " + Arrays.toString(a));
 					}
-				}
-				
 			}
-			sorted = true;
-		}
 				
+		}
 	}
+				
+	
 	public static void main(String[] args) {
 		StopWatch s = new StopWatch();
 		Object[] a = { 6.1, 4.2, 3.3, 7.4, 5.5, 2.6, 8.7, 1.8};
