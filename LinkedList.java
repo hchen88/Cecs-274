@@ -1,4 +1,4 @@
-package demos;
+package project;
 
 import java.util.NoSuchElementException;
 
@@ -131,6 +131,20 @@ public class LinkedList {
 			}
 			position.data = data;
 			
+		}
+
+
+		@Override
+		public Object previous() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+		@Override
+		public boolean hasPrevious() {
+			// TODO Auto-generated method stub
+			return false;
 		}
 		
 	}

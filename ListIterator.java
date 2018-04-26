@@ -1,4 +1,4 @@
-package demos;
+package project;
 
 public interface ListIterator {
 	/**
@@ -33,6 +33,20 @@ public interface ListIterator {
 	 * @param data the data to store
 	 */
 	public void set(Object data);
+	
+	
+	/**
+	 * iterates past the previous object in the list
+	 * @return the object that was traversed by the iterator
+	 */
+	public Object previous();
+	
+	/**
+	 * checks if there is a previous object
+	 * @return true if the next object is not null, false otherwise
+	 */
+	public boolean hasPrevious();
+	
 	
 
 }
