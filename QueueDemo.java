@@ -1,23 +1,21 @@
 package project;
-
 public class QueueDemo {
-	
-	public static void main(String[] args) {
-		DLQueue q  = new DLQueue();
-		q.add("Patrick"); //P 
-		q.add("Sponge Bob"); // P S
-		q.add("Dwight Schrute");// P S D
-		q.add("Jim Halpert"); // P S D J
-		q.add("Pam Beasley"); // P S D J P
-		q.add("Tobey Flenderson"); // P S D J P T
-		System.out.println(q.peek()); // T
-		System.out.println(q.remove()); // T
-		System.out.println(q.remove());// P
-		System.out.println(q.remove());// J
-		System.out.println(q.remove());// D
-		
-		
-		
-	}
 
+	public static void main(String[] args) {
+		DLQueue names = new DLQueue();
+		names.add("Jose");
+		names.add("Sean");
+		names.add("Shaan");
+		names.add("Kathya");
+		
+		System.out.println(names.peek());
+		System.out.println(names.remove());
+		System.out.println(names.peek());
+		System.out.println(names.remove());
+		System.out.println(names.peek());
+		System.out.println(names.remove());
+		System.out.println(names.peek());
+		System.out.println(names.remove());
+		System.out.println(names.peek()); //expecting exception
+	}
 }

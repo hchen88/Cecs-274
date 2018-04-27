@@ -31,23 +31,22 @@ public class DLQueue {
 		if(first == null ) {
 			throw new NoSuchElementException();
 		}
-		Object temp = last.data;
-		last = last.previous;
+		Object temp = first.data;
+		first = first.next;
 		return temp; 
 	}
 	
 	/**
 	 *  peeks 
-	 * @returns the last element added to the queue
+	 * @returns the first element added to the queue
 	 */
 	public Object peek() {
 		if(first == null) {
 			throw new NoSuchElementException();
 		}
-		return last.data;
+		return first.data;
 	}
 
-	
 	class Node{
 		public Object data;
 		public Node next, previous;

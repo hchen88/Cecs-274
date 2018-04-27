@@ -1,7 +1,11 @@
 package project;
 
 import java.util.NoSuchElementException;
-
+/**
+ * this class implements Doubly Linked List 
+ * @author HChen
+ *
+ */
 public class DLinkedList {
 	
 	private Node first; 
@@ -11,7 +15,7 @@ public class DLinkedList {
 	public DLinkedList() {
 		first = null;
 		last = null;
-	}
+	} 
 	
 	/**
 	 * adds the a new node to the tail of the list
@@ -38,11 +42,10 @@ public class DLinkedList {
 		newNode.data = data;//no setter necessary
 		if(first == null) {
 			last = newNode;
-		}else {
-			first.previous = newNode;		
 		}
 			newNode.next = first;
 			first = newNode;
+			
 	}
 	/**
 	 * gets the last element in list
@@ -83,17 +86,40 @@ public class DLinkedList {
 		removeCounter++;
 		return temp; 
 	}
-	
+	/**
+	 * removes the tail of the list;
+	 * @return - returns the data of the node that was deleted.
+	 */
 	public Object removeLast() {
-		if(first == null ) {
+		if (last == null) { //if the list is empty
 			throw new NoSuchElementException();
+			}
+		Object tempL = last.data; // data being removed
+		if (first == last) { // if only one element in list
+			first = null;
+		}else { // if first is not last
+			last.previous.next = null;
+			last = last.previous;
 		}
-		Object temp = last.data;
-		last = last.previous;
-		return temp; 
+		return tempL; 
+		}
+	
+	/**
+	 * this method searches the nodes for specific data then returns true if found.
+	 * @param data - the data to find
+	 * @return - returns true/false if data is in the list.
+	 */
+	public Object contains(Object data) {
+		Node temp = first;
+		while(temp != null) {
+			if (temp.data.equals(data)) {
+				return true;
+				}
+				temp = temp.next;
+			}
+			return false;
 	}
-	
-	
+		
 	public ListIterator listIterator () { //NOTE: we return a list iterator because it is a PUBLIC interface
 		//that can only be used outside of the LinkedList class 
 		return new DLinkedListIterator();
@@ -117,9 +143,9 @@ public class DLinkedList {
 			removeCounter = 0;
 			if(!hasNext()) {throw new NoSuchElementException();}
 			previous = position; // updating previous to be at the current position 
-			if(position == null) {
+			if(position == null) { // if position is at the beginning
 				position = first;
-			} else {
+			} else {  // anywhere else than beginning
 				position = position.next;
 			}
 			isAfterNext = true;
